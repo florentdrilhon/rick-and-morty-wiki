@@ -44,7 +44,6 @@ function App() {
                     <div className="col-lg-8 col-12">
                         <div className="row">
                             <Card results={results} />
-                            <Search setSearch={setSearch()} updatePageNumber={updatePageNumber()} />
                         </div>
                     </div>
                 </div>
