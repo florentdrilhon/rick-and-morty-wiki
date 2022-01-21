@@ -27,3 +27,6 @@ const FilterBTN = ({input, task, updatePageNumber, index, name}) => {
         </div>
     );
 };
+
+
+export default FilterBTN
