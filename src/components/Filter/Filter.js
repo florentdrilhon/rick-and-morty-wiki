@@ -37,6 +37,10 @@ const Filter = ({
                     updatePageNumber={updatePageNumber}
                     updateSpecies={updateSpecies}
                 />
+                <Gender
+                    updatePageNumber={updatePageNumber}
+                    updateGender={updateGender}
+                />
 
             </div>
         </div>
