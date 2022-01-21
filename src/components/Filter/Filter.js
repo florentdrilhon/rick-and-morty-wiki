@@ -29,6 +29,11 @@ const Filter = ({
             </div>
             <div className="accordion" id="accordionExample">
                 {/* Category components will be placed here */}
+                <Status
+                    updatePageNumber={updatePageNumber}
+                    updateStatus={updateStatus}
+                />
+
             </div>
         </div>
     );
