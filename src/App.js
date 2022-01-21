@@ -19,9 +19,13 @@ function App() {
     // search state values
     let [pageNumber, updatePageNumber] = useState(1);
     let [search, setSearch] = useState("");
+    // filters state values
+    let [status, updateStatus] = useState("");
+    let [gender, updateGender] = useState("");
+    let [species, updateSpecies] = useState("");
 
 
-    let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`
+    let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`
 
 
     // the useEffect hook is used to put a watch on api variable, if the var changes, it
@@ -40,7 +44,14 @@ function App() {
             <Search setSearch={setSearch} updatePageNumber={updatePageNumber}/>
             <div className="container">
                 <div className="row">
-                    Filter component will be placed here
+                    <Filter
+                        pageNumber={pageNumber}
+                        status={status}
+                        updateStatus={updateStatus}
+                        updateGender={updateGender}
+                        updateSpecies={updateSpecies}
+                        updatePageNumber={updatePageNumber}
+                    />
                     <div className="col-lg-8 col-12">
                         <div className="row">
                             <Card results={results}/>
