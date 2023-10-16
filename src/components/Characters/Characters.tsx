@@ -1,7 +1,12 @@
 import React from "react";
 import CharacterCard from "../CharacterCard/CharacterCard";
+import { Character } from "../../helpers/types";
 
-const Characters = ({ characters }) => {
+type Props = {
+  characters: Character[];
+};
+
+const Characters = ({ characters }: Props): JSX.Element => {
   if (!characters) {
     return <>No Characters Found :/</>;
   }

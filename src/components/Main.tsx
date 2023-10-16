@@ -4,9 +4,9 @@ import Search from "./Search/Search";
 import Characters from "./Characters/Characters";
 import Pagination from "./Pagination/Pagination";
 import Filter from "./Filter/Filter";
-import { useGetCharactersAndInfo } from "../hooks/character";
+import { useGetCharactersAndInfo } from "../hooks/characters";
 
-function Main() {
+function Main(): JSX.Element {
   // search state values
   const [pageNumber, updatePageNumber] = useState(1);
   const [search, setSearch] = useState("");
@@ -27,7 +27,10 @@ function Main() {
     return <h3 className="text-center mb-3">Loading...</h3>;
   }
 
-  const { info, results: characters } = charactersAndInfoData;
+  const { info, results: characters } = charactersAndInfoData ?? {
+    info: {},
+    results: [],
+  };
 
   return (
     <>
@@ -37,7 +40,6 @@ function Main() {
         <div className="row">
           <Filter
             pageNumber={pageNumber}
-            status={status}
             updateStatus={updateStatus}
             updateGender={updateGender}
             updateSpecies={updateSpecies}

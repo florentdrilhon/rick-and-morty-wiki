@@ -14,7 +14,6 @@ const getStatusBadge = (status: Status | null) => {
 };
 
 type Props = {
-  id: number;
   image: string;
   name: string;
   location: Location;
@@ -22,7 +21,6 @@ type Props = {
 };
 
 const CharacterCard = ({
-  id,
   image,
   name,
   status,
@@ -31,10 +29,7 @@ const CharacterCard = ({
   const statusBadge = getStatusBadge(status);
 
   return (
-    <div
-      key={id}
-      className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
-    >
+    <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark">
       <div
         className={`${styles.card} d-flex flex-column justify-content-center`}
       >
