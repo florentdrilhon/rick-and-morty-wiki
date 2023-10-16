@@ -1,15 +1,15 @@
 import React from "react";
 import CharacterCard from "../CharacterCard/CharacterCard";
 
-const Characters = ({ results }) => {
-  if (!results) {
+const Characters = ({ characters }) => {
+  if (!characters) {
     return <>No Characters Found :/</>;
   }
 
   return (
     <>
-      {results.map((x) => {
-        const { id, image, name, status, location } = x;
+      {characters.map((character) => {
+        const { id, image, name, status, location } = character;
 
         return (
           <CharacterCard
