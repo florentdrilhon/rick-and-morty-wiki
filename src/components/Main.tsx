@@ -8,12 +8,12 @@ import { useGetCharactersAndInfo } from "../hooks/characters";
 
 function Main(): JSX.Element {
   // search state values
-  const [pageNumber, updatePageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
   // filters state values
-  const [status, updateStatus] = useState("");
-  const [gender, updateGender] = useState("");
-  const [species, updateSpecies] = useState("");
+  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("");
+  const [species, setSpecies] = useState("");
 
   const { data: charactersAndInfoData, isLoading } = useGetCharactersAndInfo({
     pageNumber,
@@ -35,15 +35,15 @@ function Main(): JSX.Element {
   return (
     <>
       <h1 className="text-center mb-3">Characters</h1>
-      <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
+      <Search setSearch={setSearch} setPageNumber={setPageNumber} />
       <div className="container">
         <div className="row">
           <Filter
             pageNumber={pageNumber}
-            updateStatus={updateStatus}
-            updateGender={updateGender}
-            updateSpecies={updateSpecies}
-            updatePageNumber={updatePageNumber}
+            setStatus={setStatus}
+            setGender={setGender}
+            setSpecies={setSpecies}
+            setPageNumber={setPageNumber}
           />
           <div className="col-lg-8 col-12">
             <div className="row">
@@ -55,7 +55,7 @@ function Main(): JSX.Element {
       <Pagination
         info={info}
         pageNumber={pageNumber}
-        updatePageNumber={updatePageNumber}
+        setPageNumber={setPageNumber}
       />
     </>
   );

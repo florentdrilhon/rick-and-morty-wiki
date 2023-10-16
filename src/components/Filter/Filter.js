@@ -5,16 +5,16 @@ import Status from "./category/Status";
 
 const Filter = ({
   pageNumber,
-  updatePageNumber,
-  updateStatus,
-  updateGender,
-  updateSpecies,
+  setPageNumber,
+  setStatus,
+  setGender,
+  setSpecies,
 }) => {
   let clear = () => {
-    updateStatus("");
-    updateGender("");
-    updateSpecies("");
-    updatePageNumber(1);
+    setStatus("");
+    setGender("");
+    setSpecies("");
+    setPageNumber(1);
     window.location.reload(false);
   };
 
@@ -31,18 +31,9 @@ const Filter = ({
       </div>
       <div className="accordion" id="accordionExample">
         {/* Category components will be placed here */}
-        <Status
-          updatePageNumber={updatePageNumber}
-          updateStatus={updateStatus}
-        />
-        <Species
-          updatePageNumber={updatePageNumber}
-          updateSpecies={updateSpecies}
-        />
-        <Gender
-          updatePageNumber={updatePageNumber}
-          updateGender={updateGender}
-        />
+        <Status setPageNumber={setPageNumber} setStatus={setStatus} />
+        <Species setPageNumber={setPageNumber} setSpecies={setSpecies} />
+        <Gender setPageNumber={setPageNumber} setGender={setGender} />
       </div>
     </div>
   );

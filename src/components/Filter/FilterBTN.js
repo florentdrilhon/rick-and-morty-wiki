@@ -1,4 +1,4 @@
-const FilterBTN = ({input, task, updatePageNumber, index, name}) => {
+const FilterBTN = ({input, task, setPageNumber, index, name}) => {
     return (
         <div>
             <style jsx>
@@ -17,7 +17,7 @@ const FilterBTN = ({input, task, updatePageNumber, index, name}) => {
                 <label
                     onClick={(x) => {
                         task(input);
-                        updatePageNumber(1);
+                        setPageNumber(1);
                     }}
                     className="btn btn-outline-primary"
                     htmlFor={`${name}-${index}`}
