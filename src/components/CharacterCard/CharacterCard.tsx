@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./CharacterCard.module.scss";
+import { Status, Location } from "../../helpers/types";
 
-const getStatusBadge = (status) => {
+const getStatusBadge = (status: Status | null) => {
   switch (status) {
     case "Dead":
       return "danger";
@@ -12,7 +13,21 @@ const getStatusBadge = (status) => {
   }
 };
 
-const CharacterCard = ({ id, image, name, status, location }) => {
+type Props = {
+  id: number;
+  image: string;
+  name: string;
+  location: Location;
+  status: Status | null;
+};
+
+const CharacterCard = ({
+  id,
+  image,
+  name,
+  status,
+  location,
+}: Props): JSX.Element => {
   const statusBadge = getStatusBadge(status);
 
   return (
