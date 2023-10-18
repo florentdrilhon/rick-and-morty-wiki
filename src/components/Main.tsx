@@ -15,17 +15,14 @@ function Main(): JSX.Element {
   const [gender, setGender] = useState("");
   const [species, setSpecies] = useState("");
 
-  const { data: charactersAndInfoData, isLoading } = useGetCharactersAndInfo({
+  // TODO: implement a good Loading state
+  const { data: charactersAndInfoData } = useGetCharactersAndInfo({
     pageNumber,
     search,
     status,
     gender,
     species,
   });
-
-  if (isLoading) {
-    return <h3 className="text-center mb-3">Loading...</h3>;
-  }
 
   const { info, results: characters } = charactersAndInfoData ?? {
     info: {},
