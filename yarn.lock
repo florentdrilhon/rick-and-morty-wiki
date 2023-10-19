@@ -1975,6 +1975,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-paginate@^7.1.2":
+  "integrity" "sha512-5wDaAo3J4fEoGSYxNDZ9XRufuNoxCKG8OMEYBHmXvbKpJudyg+dkJxDh8wNPbIngZYV3ULTvXXrq+7dUiRt0EQ=="
+  "resolved" "https://registry.npmjs.org/@types/react-paginate/-/react-paginate-7.1.2.tgz"
+  "version" "7.1.2"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18.2.28":
   "integrity" "sha512-ad4aa/RaaJS3hyGz0BGegdnSRXQBkd1CCYDCdNjBPg90UUpLgo+WlJqb9fMYUxtehmzF3PJaTWqRZjko6BRzBg=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-18.2.28.tgz"

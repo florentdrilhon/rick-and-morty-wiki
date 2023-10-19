@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
-const Pagination = ({ pageNumber, info, setPageNumber }) => {
-  let pageChange = (data) => {
-    setPageNumber(data.selected + 1);
+type Props = {
+  pageNumber: number;
+  info: any;
+  setPageNumber: (value: number) => void;
+};
+
+const Pagination = ({
+  pageNumber,
+  info,
+  setPageNumber,
+}: Props): JSX.Element => {
+  const onPageChange = (selectedItem: { selected: number }) => {
+    setPageNumber(selectedItem.selected + 1);
   };
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -17,7 +27,7 @@ const Pagination = ({ pageNumber, info, setPageNumber }) => {
 
   return (
     <>
-      <style jsx>
+      <style>
         {`
           a {
             color: white;
@@ -41,6 +51,7 @@ const Pagination = ({ pageNumber, info, setPageNumber }) => {
         `}
       </style>
       <ReactPaginate
+        // @ts-expect-error: className is included in type normally
         className="pagination justify-content-center my-4 gap-4"
         nextLabel="Next"
         previousLabel="Prev"
@@ -53,7 +64,7 @@ const Pagination = ({ pageNumber, info, setPageNumber }) => {
         marginPagesDisplayed={width < 576 ? 1 : 2}
         pageRangeDisplayed={width < 576 ? 1 : 2}
         pageCount={info?.pages}
-        onPageChange={pageChange}
+        onPageChange={onPageChange}
       />
     </>
   );
