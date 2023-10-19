@@ -1,4 +1,4 @@
-export type Status = "Dead" | "Alive";
+export type StatusT = "Dead" | "Alive" | "unknown";
 export type Location = { name: string; url: string };
 
 export type Character = {
@@ -6,5 +6,5 @@ export type Character = {
   image: string;
   name: string;
   location: Location;
-  status: Status | null;
+  status: StatusT | null;
 };

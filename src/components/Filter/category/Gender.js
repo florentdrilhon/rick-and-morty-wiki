@@ -1,6 +1,6 @@
 import FilterBTN from "../FilterBTN";
 
-const Gender = ({ updateGender, setPageNumber }) => {
+const Gender = ({ setGender, setPageNumber }) => {
   let gender = ["male", "female", "genderless", "unknown"];
   return (
     <div className="accordion-item">
@@ -29,7 +29,7 @@ const Gender = ({ updateGender, setPageNumber }) => {
               key={index}
               index={index}
               name="gender"
-              task={updateGender}
+              task={setGender}
               setPageNumber={setPageNumber}
               input={item}
             />
