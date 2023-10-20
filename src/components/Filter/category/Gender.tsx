@@ -1,6 +1,11 @@
 import FilterBTN from "../FilterBTN";
 
-const Gender = ({ updateGender, setPageNumber }) => {
+type Props = {
+  setGender: (value: string) => void;
+  setPageNumber: (value: number) => void;
+};
+
+const Gender = ({ setGender, setPageNumber }: Props): JSX.Element => {
   let gender = ["male", "female", "genderless", "unknown"];
   return (
     <div className="accordion-item">
@@ -29,7 +34,7 @@ const Gender = ({ updateGender, setPageNumber }) => {
               key={index}
               index={index}
               name="gender"
-              task={updateGender}
+              task={setGender}
               setPageNumber={setPageNumber}
               input={item}
             />

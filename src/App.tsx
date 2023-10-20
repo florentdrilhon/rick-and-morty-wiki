@@ -8,7 +8,7 @@ import Main from "./components/Main";
 
 const queryClient = new QueryClient();
 
-function App() {
+function App(): JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">

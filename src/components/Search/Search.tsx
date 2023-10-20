@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./Search.module.scss";
 
-const Search = ({ setSearch, setPageNumber }) => {
-  let searchBtn = (e) => {
-    e.preventDefault();
-  };
+type Props = {
+  setSearch: (value: string) => void;
+  setPageNumber: (value: number) => void;
+};
+
+const Search = ({ setSearch, setPageNumber }: Props): JSX.Element => {
+  const onSearchButtonClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+    },
+    []
+  );
   return (
     <form
       className={`${styles.search} d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5`}
@@ -19,7 +27,7 @@ const Search = ({ setSearch, setPageNumber }) => {
         type="text"
       />
       <button
-        onClick={searchBtn}
+        onClick={onSearchButtonClick}
         className={`${styles.btn} btn btn-primary fs-5`}
       >
         Search

@@ -1,7 +1,13 @@
+import { StatusT } from "helpers/types";
 import FilterBTN from "../FilterBTN";
 
-const Status = ({ setStatus, setPageNumber }) => {
-  let status = ["Alive", "Dead", "Unknown"];
+type Props = {
+  setStatus: (status: StatusT | null) => void;
+  setPageNumber: (pageNumber: number) => void;
+};
+
+const Status = ({ setStatus, setPageNumber }: Props) => {
+  const statuses = ["Alive", "Dead", "Unknown"];
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id="headingOne">
@@ -24,7 +30,7 @@ const Status = ({ setStatus, setPageNumber }) => {
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d-flex flex-wrap gap-3">
-          {status.map((item, index) => (
+          {statuses.map((item, index) => (
             <FilterBTN
               key={index}
               index={index}

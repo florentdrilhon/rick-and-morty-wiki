@@ -5,27 +5,25 @@ import Characters from "./Characters/Characters";
 import Pagination from "./Pagination/Pagination";
 import Filter from "./Filter/Filter";
 import { useGetCharactersAndInfo } from "../hooks/characters";
+import { StatusT } from "../helpers/types";
 
 function Main(): JSX.Element {
   // search state values
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
   // filters state values
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<StatusT | null>(null);
   const [gender, setGender] = useState("");
   const [species, setSpecies] = useState("");
 
-  const { data: charactersAndInfoData, isLoading } = useGetCharactersAndInfo({
+  // TODO: implement a good Loading state
+  const { data: charactersAndInfoData } = useGetCharactersAndInfo({
     pageNumber,
     search,
     status,
     gender,
     species,
   });
-
-  if (isLoading) {
-    return <h3 className="text-center mb-3">Loading...</h3>;
-  }
 
   const { info, results: characters } = charactersAndInfoData ?? {
     info: {},
@@ -39,7 +37,6 @@ function Main(): JSX.Element {
       <div className="container">
         <div className="row">
           <Filter
-            pageNumber={pageNumber}
             setStatus={setStatus}
             setGender={setGender}
             setSpecies={setSpecies}

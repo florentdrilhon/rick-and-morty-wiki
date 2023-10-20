@@ -1,5 +1,5 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { Character } from "../helpers/types";
+import { Character, StatusT } from "../helpers/types";
 
 export const useGetCharactersAndInfo = ({
   pageNumber,
@@ -10,11 +10,13 @@ export const useGetCharactersAndInfo = ({
 }: {
   pageNumber: number;
   search: string;
-  status: string;
+  status: StatusT | null;
   gender: string;
   species: string;
 }): UseQueryResult<{ info: Object; results: Character[] }, unknown> => {
-  const endpoint = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
+  const endpoint = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${
+    status ?? ""
+  }&gender=${gender}&species=${species}`;
   return useQuery([pageNumber, search, status, gender, species], async () => {
     const data: { info: Object; result: Character[] } = await fetch(
       endpoint
