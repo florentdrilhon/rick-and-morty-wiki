@@ -1,6 +1,11 @@
 import FilterBTN from "../FilterBTN";
 
-const Gender = ({ setGender, setPageNumber }) => {
+type Props = {
+  setGender: (value: string) => void;
+  setPageNumber: (value: number) => void;
+};
+
+const Gender = ({ setGender, setPageNumber }: Props): JSX.Element => {
   let gender = ["male", "female", "genderless", "unknown"];
   return (
     <div className="accordion-item">

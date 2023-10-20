@@ -1,8 +1,13 @@
 import FilterBTN from "../FilterBTN";
 
-const Species = ({ setSpecies, setPageNumber }) => {
+type Props = {
+  setSpecies: (species: string) => void;
+  setPageNumber: (pageNumber: number) => void;
+};
+
+const Species = ({ setSpecies, setPageNumber }: Props): JSX.Element => {
   // TODO: define enum or types for species
-  let species = [
+  const species = [
     "Human",
     "Alien",
     "Humanoid",
