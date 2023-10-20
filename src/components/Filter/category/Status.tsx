@@ -1,4 +1,4 @@
-import { StatusT } from "../../../helpers/types";
+import { StatusT } from "helpers/types";
 import FilterBTN from "../FilterBTN";
 
 type Props = {

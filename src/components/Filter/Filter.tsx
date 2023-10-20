@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import Gender from "./category/Gender";
 import Species from "./category/Species";
 import Status from "./category/Status";
-import { StatusT } from "../../helpers/types";
+import { StatusT } from "helpers/types";
 
 type Props = {
   setPageNumber: (value: number) => void;
