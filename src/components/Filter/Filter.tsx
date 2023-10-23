@@ -16,7 +16,7 @@ const Filter = ({
   setStatus,
   setGender,
   setSpecies,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   // TODO: prevent the window from reloading, the location.reload is useless
   const onClearButtonClick = useCallback(() => {
     setStatus(null);

@@ -6,7 +6,7 @@ type Props = {
   setPageNumber: (value: number) => void;
 };
 
-const Search = ({ setSearch, setPageNumber }: Props): JSX.Element => {
+const Search = ({ setSearch, setPageNumber }: Props): React.ReactElement => {
   const onSearchButtonClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();

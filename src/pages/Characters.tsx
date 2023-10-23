@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import Search from "./Search/Search";
-import Characters from "./Characters/Characters";
-import Pagination from "./Pagination/Pagination";
-import Filter from "./Filter/Filter";
+import Search from "../components/Search/Search";
+import CharactersList from "../components/CharactersList/CharactersList";
+import Pagination from "../components/Pagination/Pagination";
+import Filter from "../components/Filter/Filter";
 import { useGetCharactersAndInfo } from "../hooks/characters";
 import { StatusT } from "../helpers/types";
 
-function Main(): JSX.Element {
+function Characters(): React.ReactElement {
   // search state values
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
@@ -44,7 +44,7 @@ function Main(): JSX.Element {
           />
           <div className="col-lg-8 col-12">
             <div className="row">
-              <Characters characters={characters} />
+              <CharactersList characters={characters} />
             </div>
           </div>
         </div>
@@ -58,4 +58,4 @@ function Main(): JSX.Element {
   );
 }
 
-export default Main;
+export default Characters;
