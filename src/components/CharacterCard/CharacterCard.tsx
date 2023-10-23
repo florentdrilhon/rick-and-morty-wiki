@@ -25,7 +25,7 @@ const CharacterCard = ({
   name,
   status,
   location,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   const statusBadge = getStatusBadge(status);
 
   return (

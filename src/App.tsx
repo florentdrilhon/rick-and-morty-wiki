@@ -3,18 +3,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import Main from "./components/Main";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Characters from "./pages/Characters";
+import Locations from "./pages/Locations";
+import Episodes from "./pages/Episodes";
+import Navbar from "components/Navbar/Navbar";
 
 const queryClient = new QueryClient();
 
-function App(): JSX.Element {
+function App(): React.ReactElement {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <Main />
-      </div>
-    </QueryClientProvider>
+    <Router>
+      <QueryClientProvider client={queryClient}>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Characters />} />
+            <Route path="/episodes" element={<Episodes />} />
+            <Route path="/location" element={<Locations />} />
+          </Routes>
+        </div>
+      </QueryClientProvider>
+    </Router>
   );
 }
 

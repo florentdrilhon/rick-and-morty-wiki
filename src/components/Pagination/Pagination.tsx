@@ -11,7 +11,7 @@ const Pagination = ({
   pageNumber,
   info,
   setPageNumber,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   const onPageChange = (selectedItem: { selected: number }) => {
     setPageNumber(selectedItem.selected + 1);
   };

@@ -6,7 +6,7 @@ type Props = {
   characters: Character[];
 };
 
-const Characters = ({ characters }: Props): JSX.Element => {
+const CharactersList = ({ characters }: Props): React.ReactElement => {
   if (!characters) {
     return <>No Characters Found :/</>;
   }
@@ -30,4 +30,4 @@ const Characters = ({ characters }: Props): JSX.Element => {
   );
 };
 
-export default Characters;
+export default CharactersList;

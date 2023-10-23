@@ -5,7 +5,7 @@ type Props = {
   setPageNumber: (pageNumber: number) => void;
 };
 
-const Species = ({ setSpecies, setPageNumber }: Props): JSX.Element => {
+const Species = ({ setSpecies, setPageNumber }: Props): React.ReactElement => {
   // TODO: define enum or types for species
   const species = [
     "Human",

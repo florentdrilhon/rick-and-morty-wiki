@@ -5,7 +5,7 @@ type Props = {
   setPageNumber: (value: number) => void;
 };
 
-const Gender = ({ setGender, setPageNumber }: Props): JSX.Element => {
+const Gender = ({ setGender, setPageNumber }: Props): React.ReactElement => {
   let gender = ["male", "female", "genderless", "unknown"];
   return (
     <div className="accordion-item">

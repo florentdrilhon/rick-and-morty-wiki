@@ -12,7 +12,7 @@ const FilterBTN = ({
   setPageNumber,
   index,
   name,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   return (
     <div>
       <style>
