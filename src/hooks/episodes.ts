@@ -10,6 +10,16 @@ type ApiResponse = {
   characters: string[];
 };
 
+export const useGetEpisodesCount = (): UseQueryResult<number, unknown> => {
+  const endpoint = `https://rickandmortyapi.com/api/episode`;
+  return useQuery(["episodeCount"], async () => {
+    const data: { info: { count: number } } = await fetch(endpoint).then(
+      (res) => res.json()
+    );
+    return data.info?.count ?? 0;
+  });
+};
+
 export const useGetEpisodeDetails = (
   episodeId: number
 ): UseQueryResult<{ info: EpisodeInfo; characters: Character[] }, unknown> => {

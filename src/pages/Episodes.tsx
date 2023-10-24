@@ -1,12 +1,20 @@
-import { useGetEpisodeDetails } from "hooks/episodes";
+import InputSelector from "components/Filter/InputSelector";
+import { useGetEpisodeDetails, useGetEpisodesCount } from "hooks/episodes";
 import React, { useState } from "react";
 
 const defaultInfo = { air_date: "", name: "" };
 
 const Episodes = (): React.ReactElement => {
-  const [episodeId] = useState(1);
+  const [episodeId, setEpisodeId] = useState(1);
+
+  const { data: episodeCountData } = useGetEpisodesCount();
   const { data: episodeDetailsData, isLoading } =
     useGetEpisodeDetails(episodeId);
+
+  const episodeCount = episodeCountData ?? 0;
+  const episodeList = Array.from(Array(episodeCount).keys()).map(
+    (index) => index + 1
+  );
   const { info } = episodeDetailsData ?? {
     info: defaultInfo,
     characters: [],
@@ -30,6 +38,21 @@ const Episodes = (): React.ReactElement => {
             </h5>{" "}
           </>
         )}
+      </div>
+      <div className="row">
+        <div className="col-lg-3 col-12 mb-4">
+          <h4 className="text-center mb-4">Pick Episode</h4>
+          <InputSelector<number>
+            label="Episode"
+            onChange={setEpisodeId}
+            values={episodeList}
+          />
+        </div>
+        <div className="col-lg-8 col-12">
+          {/* <div className="row">
+            <Card results={results} />
+          </div> */}
+        </div>
       </div>
     </div>
   );
