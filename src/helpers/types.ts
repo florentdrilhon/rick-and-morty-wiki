@@ -9,8 +9,22 @@ export type Character = {
   status: StatusT | null;
 };
 
+export type GeneralResponseInfo = {
+  count: number;
+  pages: number;
+  next: string | null;
+  prev: string | null;
+};
+
 export type EpisodeInfo = {
   air_date: string;
-  episode: unknown;
+  episode: string;
   name: string;
+};
+
+export type LocationInfo = {
+  id: number | null;
+  type: string;
+  name: string;
+  dimension: string;
 };

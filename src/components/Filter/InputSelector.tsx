@@ -19,7 +19,7 @@ function InputSelector<T extends string | number>({
         id={label}
       >
         {values.map((value) => (
-          <option value={value}>{`${label} - ${value}`}</option>
+          <option key={value} value={value}>{`${label} - ${value}`}</option>
         ))}
       </select>
     </div>
