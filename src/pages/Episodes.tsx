@@ -1,21 +1,22 @@
 import CharactersList from "components/CharactersList/CharactersList";
 import InputSelector from "components/Filter/InputSelector";
-import { useGetEpisodeDetails, useGetEpisodesCount } from "hooks/episodes";
+import { EpisodeInfo } from "helpers/types";
+import { useGetEpisodeDetails, useGetEpisodesList } from "hooks/episodes";
 import React, { useState } from "react";
 
-const defaultInfo = { air_date: "", name: "" };
+const defaultInfo: EpisodeInfo = { air_date: "", name: "", episode: "", id: 0 };
 
 const Episodes = (): React.ReactElement => {
   const [episodeId, setEpisodeId] = useState(1);
 
-  const { data: episodeCountData } = useGetEpisodesCount();
+  const { data: episodesListData } = useGetEpisodesList();
   const { data: episodeDetailsData, isLoading } =
     useGetEpisodeDetails(episodeId);
 
-  const episodeCount = episodeCountData ?? 0;
-  const episodeList = Array.from(Array(episodeCount).keys()).map((index) => ({
-    id: index + 1,
-    label: String(index + 1),
+  const episodesList = episodesListData ?? [];
+  const episodeListValues = episodesList.map((ep) => ({
+    id: ep.id,
+    label: `${ep.episode}: ${ep.name}`,
   }));
   const { info, characters } = episodeDetailsData ?? {
     info: defaultInfo,
@@ -47,7 +48,7 @@ const Episodes = (): React.ReactElement => {
           <InputSelector
             label="Episode"
             onChange={setEpisodeId}
-            values={episodeList}
+            values={episodeListValues}
           />
         </div>
         {!isLoading && (

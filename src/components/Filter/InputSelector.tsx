@@ -20,10 +20,9 @@ function InputSelector({ label, onChange, values }: Props): React.ReactElement {
         id={label}
       >
         {values.map((value) => (
-          <option
-            key={value.id}
-            value={value.id}
-          >{`${label} - ${value.label}`}</option>
+          <option key={value.id} value={value.id}>
+            {value.label}
+          </option>
         ))}
       </select>
     </div>

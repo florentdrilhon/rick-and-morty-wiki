@@ -17,6 +17,7 @@ export type GeneralResponseInfo = {
 };
 
 export type EpisodeInfo = {
+  id: number;
   air_date: string;
   episode: string;
   name: string;

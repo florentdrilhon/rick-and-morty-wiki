@@ -1,5 +1,5 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { Character, EpisodeInfo } from "../helpers/types";
+import { Character, EpisodeInfo, GeneralResponseInfo } from "../helpers/types";
 
 type ApiResponse = {
   id: number;
@@ -10,13 +10,15 @@ type ApiResponse = {
   characters: string[];
 };
 
-export const useGetEpisodesCount = (): UseQueryResult<number, unknown> => {
+export const useGetEpisodesList = (): UseQueryResult<
+  EpisodeInfo[],
+  unknown
+> => {
   const endpoint = `https://rickandmortyapi.com/api/episode`;
-  return useQuery(["episodeCount"], async () => {
-    const data: { info: { count: number } } = await fetch(endpoint).then(
-      (res) => res.json()
-    );
-    return data.info?.count ?? 0;
+  return useQuery(["episodeList"], async () => {
+    const data: { info: GeneralResponseInfo; results: EpisodeInfo[] } =
+      await fetch(endpoint).then((res) => res.json());
+    return data.results ?? [];
   });
 };
 
