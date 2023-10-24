@@ -26,6 +26,7 @@ export const useGetLocationsList = (): UseQueryResult<
 export const useGetLocationDetails = (
   locationId: number
 ): UseQueryResult<{ info: LocationInfo; characters: Character[] }, unknown> => {
+  // FIXME: don't fetch this, we already have the info in the locations list from the hook above
   const endpoint = `https://rickandmortyapi.com/api/location/${locationId}`;
   return useQuery(["location", locationId], async () => {
     const data: ApiResponse = await fetch(endpoint).then((res) => res.json());

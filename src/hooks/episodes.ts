@@ -25,6 +25,7 @@ export const useGetEpisodesList = (): UseQueryResult<
 export const useGetEpisodeDetails = (
   episodeId: number
 ): UseQueryResult<{ info: EpisodeInfo; characters: Character[] }, unknown> => {
+  // FIXME: don't fetch this, we already have the info in the episodes list from the hook above
   const endpoint = `https://rickandmortyapi.com/api/episode/${episodeId}`;
   return useQuery(["episode", episodeId], async () => {
     const data: ApiResponse = await fetch(endpoint).then((res) => res.json());
