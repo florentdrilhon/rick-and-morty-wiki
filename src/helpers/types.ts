@@ -8,3 +8,9 @@ export type Character = {
   location: Location;
   status: StatusT | null;
 };
+
+export type EpisodeInfo = {
+  air_date: string;
+  episode: unknown;
+  name: string;
+};
