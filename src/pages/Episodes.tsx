@@ -13,9 +13,10 @@ const Episodes = (): React.ReactElement => {
     useGetEpisodeDetails(episodeId);
 
   const episodeCount = episodeCountData ?? 0;
-  const episodeList = Array.from(Array(episodeCount).keys()).map(
-    (index) => index + 1
-  );
+  const episodeList = Array.from(Array(episodeCount).keys()).map((index) => ({
+    id: index + 1,
+    label: String(index + 1),
+  }));
   const { info, characters } = episodeDetailsData ?? {
     info: defaultInfo,
     characters: [],
@@ -43,7 +44,7 @@ const Episodes = (): React.ReactElement => {
       <div className="row">
         <div className="col-lg-3 col-12 mb-4">
           <h4 className="text-center mb-4">Pick Episode</h4>
-          <InputSelector<number>
+          <InputSelector
             label="Episode"
             onChange={setEpisodeId}
             values={episodeList}

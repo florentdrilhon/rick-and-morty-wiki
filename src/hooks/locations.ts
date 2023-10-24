@@ -17,7 +17,6 @@ export const useGetLocationsCount = (): UseQueryResult<number, unknown> => {
     const data: { info: GeneralResponseInfo } = await fetch(endpoint).then(
       (res) => res.json()
     );
-    console.log({ data });
     return data.info?.count ?? 0;
   });
 };

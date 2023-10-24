@@ -19,9 +19,10 @@ const Locations = (): React.ReactElement => {
     useGetLocationDetails(locationId);
 
   const locationCount = locationCountData ?? 0;
-  const locationList = Array.from(Array(locationCount).keys()).map(
-    (index) => index + 1
-  );
+  const locationList = Array.from(Array(locationCount).keys()).map((index) => ({
+    id: index + 1,
+    label: String(index + 1),
+  }));
   const { info, characters } = locationDetailsData ?? {
     info: defaultInfo,
     characters: [],
@@ -52,7 +53,7 @@ const Locations = (): React.ReactElement => {
       <div className="row">
         <div className="col-lg-3 col-12 mb-4">
           <h4 className="text-center mb-4">Pick Location</h4>
-          <InputSelector<number>
+          <InputSelector
             label="Location"
             onChange={setLocationId}
             values={locationList}

@@ -1,25 +1,29 @@
 import React from "react";
 
-type Props<T extends string | number> = {
+type SelectorValue = {
+  id: number;
   label: string;
-  onChange: (value: T) => void;
-  values: Array<T>;
 };
 
-function InputSelector<T extends string | number>({
-  label,
-  onChange,
-  values,
-}: Props<T>): React.ReactElement {
+type Props = {
+  label: string;
+  onChange: (newId: number) => void;
+  values: Array<SelectorValue>;
+};
+
+function InputSelector({ label, onChange, values }: Props): React.ReactElement {
   return (
     <div className="input-group mb-3">
       <select
-        onChange={(e) => onChange(e.target.value as T)}
+        onChange={(e) => onChange(Number(e.target.value))}
         className="form-select"
         id={label}
       >
         {values.map((value) => (
-          <option key={value} value={value}>{`${label} - ${value}`}</option>
+          <option
+            key={value.id}
+            value={value.id}
+          >{`${label} - ${value.label}`}</option>
         ))}
       </select>
     </div>
