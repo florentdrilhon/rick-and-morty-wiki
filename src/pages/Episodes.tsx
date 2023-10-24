@@ -1,3 +1,4 @@
+import CharactersList from "components/CharactersList/CharactersList";
 import InputSelector from "components/Filter/InputSelector";
 import { useGetEpisodeDetails, useGetEpisodesCount } from "hooks/episodes";
 import React, { useState } from "react";
@@ -15,7 +16,7 @@ const Episodes = (): React.ReactElement => {
   const episodeList = Array.from(Array(episodeCount).keys()).map(
     (index) => index + 1
   );
-  const { info } = episodeDetailsData ?? {
+  const { info, characters } = episodeDetailsData ?? {
     info: defaultInfo,
     characters: [],
   };
@@ -48,11 +49,13 @@ const Episodes = (): React.ReactElement => {
             values={episodeList}
           />
         </div>
-        <div className="col-lg-8 col-12">
-          {/* <div className="row">
-            <Card results={results} />
-          </div> */}
-        </div>
+        {!isLoading && (
+          <div className="col-lg-8 col-12">
+            <div className="row">
+              <CharactersList characters={characters} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
