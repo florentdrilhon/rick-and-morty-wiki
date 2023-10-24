@@ -1,27 +1,27 @@
 import CharactersList from "components/CharactersList/CharactersList";
 import InputSelector from "components/Filter/InputSelector";
 import { LocationInfo } from "helpers/types";
-import { useGetLocationDetails, useGetLocationsCount } from "hooks/locations";
+import { useGetLocationDetails, useGetLocationsList } from "hooks/locations";
 import React, { useState } from "react";
 
 const defaultInfo: LocationInfo = {
   dimension: "",
   name: "",
   type: "",
-  id: null,
+  id: 0,
 };
 
 const Locations = (): React.ReactElement => {
   const [locationId, setLocationId] = useState(1);
 
-  const { data: locationCountData } = useGetLocationsCount();
+  const { data: locationsListData } = useGetLocationsList();
   const { data: locationDetailsData, isLoading } =
     useGetLocationDetails(locationId);
 
-  const locationCount = locationCountData ?? 0;
-  const locationList = Array.from(Array(locationCount).keys()).map((index) => ({
-    id: index + 1,
-    label: String(index + 1),
+  const locationList = locationsListData ?? [];
+  const locationListValues = locationList.map((location) => ({
+    id: location.id,
+    label: location.name,
   }));
   const { info, characters } = locationDetailsData ?? {
     info: defaultInfo,
@@ -56,7 +56,7 @@ const Locations = (): React.ReactElement => {
           <InputSelector
             label="Location"
             onChange={setLocationId}
-            values={locationList}
+            values={locationListValues}
           />
         </div>
         {!isLoading && (

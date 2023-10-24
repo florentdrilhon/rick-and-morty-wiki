@@ -23,7 +23,7 @@ export type EpisodeInfo = {
 };
 
 export type LocationInfo = {
-  id: number | null;
+  id: number;
   type: string;
   name: string;
   dimension: string;

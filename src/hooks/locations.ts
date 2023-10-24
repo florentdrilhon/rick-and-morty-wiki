@@ -11,13 +11,15 @@ type ApiResponse = {
   created: string;
 };
 
-export const useGetLocationsCount = (): UseQueryResult<number, unknown> => {
+export const useGetLocationsList = (): UseQueryResult<
+  LocationInfo[],
+  unknown
+> => {
   const endpoint = `https://rickandmortyapi.com/api/location`;
-  return useQuery(["locationCount"], async () => {
-    const data: { info: GeneralResponseInfo } = await fetch(endpoint).then(
-      (res) => res.json()
-    );
-    return data.info?.count ?? 0;
+  return useQuery(["locations"], async () => {
+    const data: { info: GeneralResponseInfo; results: ApiResponse[] } =
+      await fetch(endpoint).then((res) => res.json());
+    return data.results ?? [];
   });
 };
 
