@@ -5,7 +5,7 @@ export type Character = {
   id: number;
   image: string;
   name: string;
-  origin: string;
+  origin: Location;
   gender: string;
   species: string;
   location: Location;
