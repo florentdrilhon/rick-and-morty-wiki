@@ -1,10 +1,40 @@
-# Getting Started with Create React App
+# Rick & Morty Wiki React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application project is based on the [freecodecamp](https://www.freecodecamp.org/news/react-js-project-build-a-rick-and-morty-character-wiki/) tutorial with personal improvements.
 
-## Available Scripts
+The web application uses the API from rickandmortyapi to reference all characters from the famous animation TV Show: Rick & Morty.
 
-In the project directory, you can run:
+## Functionalities
+
+### Main page
+
+Once started, you can find on the application, the main page containing all characters from the TV Show, with the possibility to filter them by Species, Status or Gender, or even to search a character by its name
+
+### Episodes
+
+On the Episodes page you can find a selector to choose any episode from the serie, and access to the list of characters in the episode.
+
+
+### Locations
+
+As in the episodes page, you can select any location from the serie and see which characters live in it.
+
+### Character details
+
+By clicking on any character, you can access a few more details about her/him/it.
+
+
+## Personal Ameliorations
+
+As the project is from a tutorial, a big part of the code was already available online, which was a good point to learn React, but once I was more experienced with the library, I decided to bring some improvements to the project so that it can be a lot more personal.
+
+- first of all, I migrated the whole project to TypeScript to make more documented, robust, etc.. (you know all the benefits of TypeScript)
+- I added the library tanstack-query (or react-query) to handle all api calls and have a basic cache management
+- I added a basic loading management to improve user experience
+- I redefined a lot of basic code structure to improve readability, consistency and performance by for example replacing all the useless `let` declarations by `const`, by removing avoidable `useEffect` and `useState` causing unwanted rerendering and refactoring the code the separate helpers from the components and avoiding too big components by dividing in small ones.  
+
+
+## Classic React Doc to start the app
 
 ### `yarn start`
 
