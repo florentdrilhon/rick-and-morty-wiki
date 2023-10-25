@@ -29,7 +29,7 @@ const CharacterCard = ({
   const statusBadge = getStatusBadge(status);
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark">
+    <>
       <div
         className={`${styles.card} d-flex flex-column justify-content-center`}
       >
@@ -47,7 +47,7 @@ const CharacterCard = ({
       >
         {status}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import Characters from "./pages/Characters";
 import Locations from "./pages/Locations";
 import Episodes from "./pages/Episodes";
 import Navbar from "components/Navbar/Navbar";
+import CharacterDetails from "components/CharacterDetails/CharacterDetails";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,16 @@ function App(): React.ReactElement {
           <Routes>
             <Route path="/" element={<Characters />} />
             <Route path="/episodes" element={<Episodes />} />
-            <Route path="/location" element={<Locations />} />
+            <Route path="/locations" element={<Locations />} />
+            <Route path="/:characterId" element={<CharacterDetails />} />
+            <Route
+              path="/episodes/:characterId"
+              element={<CharacterDetails />}
+            />
+            <Route
+              path="/locations/:characterId"
+              element={<CharacterDetails />}
+            />
           </Routes>
         </div>
       </QueryClientProvider>

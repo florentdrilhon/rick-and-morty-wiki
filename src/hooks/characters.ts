@@ -24,3 +24,13 @@ export const useGetCharactersAndInfo = ({
     return data;
   });
 };
+
+export const useGetCharacterDetails = (
+  characterId: number | undefined
+): UseQueryResult<Character, unknown> => {
+  const endpoint = `https://rickandmortyapi.com/api/character/${characterId}`;
+  return useQuery(["character", characterId], async () => {
+    const data: Character = await fetch(endpoint).then((res) => res.json());
+    return data;
+  });
+};
