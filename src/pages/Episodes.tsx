@@ -54,7 +54,7 @@ const Episodes = (): React.ReactElement => {
         {!isLoading && (
           <div className="col-lg-8 col-12">
             <div className="row">
-              <CharactersList characters={characters} />
+              <CharactersList page="/episodes" characters={characters} />
             </div>
           </div>
         )}

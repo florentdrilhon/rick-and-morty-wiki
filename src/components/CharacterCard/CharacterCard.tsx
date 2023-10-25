@@ -1,17 +1,7 @@
 import React from "react";
 import styles from "./CharacterCard.module.scss";
 import { StatusT, Location } from "../../helpers/types";
-
-const getStatusBadge = (status: StatusT | null) => {
-  switch (status) {
-    case "Dead":
-      return "danger";
-    case "Alive":
-      return "success";
-    default:
-      return "secondary";
-  }
-};
+import { getStatusBadge } from "helpers/characterHelpers";
 
 type Props = {
   image: string;
@@ -29,7 +19,7 @@ const CharacterCard = ({
   const statusBadge = getStatusBadge(status);
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark">
+    <>
       <div
         className={`${styles.card} d-flex flex-column justify-content-center`}
       >
@@ -47,7 +37,7 @@ const CharacterCard = ({
       >
         {status}
       </div>
-    </div>
+    </>
   );
 };
 
