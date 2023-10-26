@@ -4,6 +4,8 @@ This web application project is based on the [freecodecamp](https://www.freecode
 
 The web application uses the API from rickandmortyapi to reference all characters from the famous animation TV Show: Rick & Morty.
 
+![Alt text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHBjanh3bXdwaGtnejV0aGF4c3p6cGhucHViMGpmdWJkcnU4bzJibCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MeM10mkoUXW8IRATAj/source.gif)
+
 ## Functionalities
 
 ### Main page
